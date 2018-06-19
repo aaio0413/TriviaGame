@@ -1,0 +1,28 @@
+body {
+    background: url('../images/garden_renge.jpg');
+    background-size: cover;
+    width: 100%;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.main-wrapper {
+    position: absolute;
+    color: white;
+    top: 45%;
+    left: 33%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+#title {
+    font-size: 80px;
+    color: white;
+}
+
+#subTitle {
+    font-size: 25px;
+    color: white;
+}
