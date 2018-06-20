@@ -1,8 +1,12 @@
-body {
+.hm-body {
     background: url('../images/garden_renge.jpg');
     background-size: cover;
     width: 100%;
     font-family: 'Kaushan Script', cursive;
+}
+
+body a {
+    text-decoration: none
 }
 
 .main-wrapper {
@@ -25,4 +29,43 @@ body {
 #subTitle {
     font-size: 25px;
     color: white;
+}
+
+
+/* game.html here */
+
+.game-body {
+    background: url('../images/FUGOKU.jpg') no-repeat;
+    background-size: cover;
+    width: 100%;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.time {
+    margin: 15px;
+    font-size: 45px;
+    text-align: center;
+}
+
+.main-content {
+    flex-direction: column;
+}
+
+.inner-wrapper {
+    background-color: rgb(225, 239, 248);
+    width: 60%;
+    height: 400px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+img {
+    width: 30%;
+    height: 250px;
+    
+}
+
+.question {
+    text-align: left;
+    font-size: 30px;
 }

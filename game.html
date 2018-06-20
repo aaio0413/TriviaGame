@@ -11,21 +11,22 @@
     <link rel='stylesheet' href='assets/css/styles.css'>
     <link rel='stylesheet' href='assets/css/reset.css'>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    
-    
-    
-    <title>Japan Trivia</title>
+    <title>Japanese Trivia</title>
 </head>
-
-<body class='hm-body'>
-    <header></header>
-
-    <a class='main-wrapper' href='game.html' target='_blank'> 
-        <p id='title' class='flex-center'>Japanese Trivia</p>
-        <p id='subTitle' class='flex-center'>click here to start trivia game.</p>
+<body class='game-body'>
+    <div class='main-content flex-center'>
+        <div id='time-display' class="time">00:30</div>
+        <div class='img-wrapper flex-center'>
+            <img src='assets/images/edo.jpg'>
+        </div>
+        <div class='inner-wrapper'>
+         
+            <span class='question'>Question: <span id='question'></span></span>
+            <p id='answers'></p>
+        </div>
     </div>
 
 
-    <!-- <script type='text/javascript' src='assets/javascript/app.js'></script> -->
+    <script type='text/javascript' src='assets/javascript/app.js'></script>
 </body>
 </html>
