@@ -1,19 +1,23 @@
 .hm-body {
-    background: url('../images/garden_renge.jpg');
-    background-size: cover;
-    width: 100%;
+    background-image: url('../images/garden_renge.jpg');
+    /* background-size: cover; */
+    
     font-family: 'Kaushan Script', cursive;
+    background-size: 100%;
+ 
 }
 
 body a {
-    text-decoration: none
+    text-decoration: none;
 }
 
 .main-wrapper {
+    background-color: rgba(0,0,0,0);
     position: absolute;
     color: white;
     top: 45%;
     left: 33%;
+    border-width: 0;
 }
 
 .flex-center {
@@ -68,4 +72,15 @@ img {
 .question {
     text-align: left;
     font-size: 30px;
+}
+
+.answer {
+    margin: 30px;
+    text-align: left;
+    font-size: 30px;
+}
+
+#the-answer-wrapper p {
+    font-size: 45px;
+    text-align: left;
 }

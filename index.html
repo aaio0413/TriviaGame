@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='assets/css/styles.css'>
     <link rel='stylesheet' href='assets/css/reset.css'>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     
     
     
@@ -19,13 +20,37 @@
 
 <body class='hm-body'>
     <header></header>
+    <div class='start-button-wrapper'>
+        <button id='start-button' class='main-wrapper'> 
 
-    <a class='main-wrapper' href='game.html' target='_blank'> 
         <p id='title' class='flex-center'>Japanese Trivia</p>
         <p id='subTitle' class='flex-center'>click here to start trivia game.</p>
+    </div>
+    <div id='game' style='display: none;'>
+        <div class='main-content flex-center'>
+            <div id='time-display' class="time">00:30</div>
+            <div class='img-wrapper flex-center'>
+                <img src='assets/images/edo.jpg'>
+            </div>
+            <div class='inner-wrapper display: show;'>
+                <div id='board'>
+                    <p class='question'>Question: <span id='question'></span></p>
+                    <p id='answer0'>1.</p>
+                    <p id='answer1'>2.</p>
+                    <p id='answer2'>3.</p>
+                    <p id='answer3'>4.</p>
+                    <input type='button' value='submit' id='submit-button'>
+                </div>
+                <div id='the-answer-wrapper' style='display: none;'>
+                    <p>The Answer is: <span id='the-answer'></span></p>
+                </div>
+                
+            </div>
+        </div>
     </div>
 
 
     <!-- <script type='text/javascript' src='assets/javascript/app.js'></script> -->
+    <script type='text/javascript' src='assets/javascript/app.js'></script>
 </body>
 </html>

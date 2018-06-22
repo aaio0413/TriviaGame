@@ -10,7 +10,8 @@
     crossorigin="anonymous"></script>
     <link rel='stylesheet' href='assets/css/styles.css'>
     <link rel='stylesheet' href='assets/css/reset.css'>
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
+
     <title>Japanese Trivia</title>
 </head>
 <body class='game-body'>
@@ -20,9 +21,15 @@
             <img src='assets/images/edo.jpg'>
         </div>
         <div class='inner-wrapper'>
+            
+            <p class='question'>Question: <span id='question'></span></p>
+            <p id='answer0'>1.</p>
+            <p id='answer1'>2.</p>
+            <p id='answer2'>3.</p>
+            <p id='answer3'>4.</p>
+
          
-            <span class='question'>Question: <span id='question'></span></span>
-            <p id='answers'></p>
+            <input type='button' value='submit' id='submit-button'>
         </div>
     </div>
 
