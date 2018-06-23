@@ -11,7 +11,7 @@
     <link rel='stylesheet' href='assets/css/styles.css'>
     <link rel='stylesheet' href='assets/css/reset.css'>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
     
     
     
@@ -35,14 +35,17 @@
             <div class='inner-wrapper display: show;'>
                 <div id='board'>
                     <p class='question'>Question: <span id='question'></span></p>
-                    <p id='answer0'>1.</p>
-                    <p id='answer1'>2.</p>
-                    <p id='answer2'>3.</p>
-                    <p id='answer3'>4.</p>
+                    <div id='answers-wrapper'>
+                        <p id='answer0'>1.</p>
+                        <p id='answer1'>2.</p>
+                        <p id='answer2'>3.</p>
+                        <p id='answer3'>4.</p>
+                    </div>
                     <input type='button' value='submit' id='submit-button'>
                 </div>
                 <div id='the-answer-wrapper' style='display: none;'>
                     <p>The Answer is: <span id='the-answer'></span></p>
+                    <button id='next-button' class='button'>Go To Next Question!</button>
                 </div>
                 
             </div>
