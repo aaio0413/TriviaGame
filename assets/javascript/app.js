@@ -4,20 +4,20 @@ questions[0] = {
     answers: ['400 years ago.', '800 years ago.', '200 years ago.', '100 years ago.']
 }
 questions[1] = {
-    question: 'Q2',
-    answers: ['400 years ago.', '800 years ago.', '200 years ago.', '100 years ago.']
+    question: 'How many people live in Tokyo?',
+    answers: ['9.2 million.', '8.2 million', '5.2 million.', '15.2 million.']
 }
 questions[2] = {
-    question: 'Q3',
-    answers: ['400 years ago.', '800 years ago.', '200 years ago.', '100 years ago.']
+    question: 'What rank is Tokyo in terms of GDP in the cities of the world?',
+    answers: ['1st.', '2nd', '3rd.', '4th.']
 }
 questions[3] = {
-    question: 'Q4',
-    answers: ['400 years ago.', '800 years ago.', '200 years ago.', '100 years ago.']
+    question: 'The area of Tokyo is?',
+    answers: ['845 miles square.', '745 miles square.', '645 miles square.', '545 miles square.']
 }
 questions[4] = {
-    question: 'Q5',
-    answers: ['400 years ago.', '800 years ago.', '200 years ago.', '100 years ago.']
+    question: 'How many stations Tokyo has?',
+    answers: ['654.', '854.', '454.', '1054.']
 }
 
 
@@ -25,25 +25,30 @@ var clockRunning = false;
 var time = 30;
 var interval;
 var questionCount = 0;
+var currentQuestion = [];
 
 
 $(document).ready(function() {
     $('#start-button').on('click', function() {
         $('.hm-body').css('background-image', 'url(assets/images/FUGOKU.jpg)');
-        $('.start-button-wrapper').hide();
+        $('.start-button-wrapper').toggle();
         $('#game').toggle();
-        shuffleArray(questions);
         start();
+        currentQuestion = shuffleArray(questions);
+        console.log(questionCount)
+        console.log(currentQuestion)
+        console.log(questions)
 
     })
 });
 
 var shuffleArray = function(array) {
-    for (let i = array.length -1; i >0; i--) {
+    var newArray = array.slice(0);
+    for (let i = newArray.length -1; i > 0; i--) {
         const j = Math.floor(Math.random()* (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-    return array;
+    return newArray;
 }
 
 
@@ -55,6 +60,7 @@ var start = function() {
     }
    // $('.hm-body').css('background-image', 'url(assets/images/FUGOKU.jpg)');
     displayQuestion();
+    console.log(questionCount)
 };
 
 var timeCount = function() {
@@ -89,21 +95,22 @@ var timeConverter = function(t) {
 };
 
 var displayQuestion = function() {
-    if(questionCount === questions.length-1) {
+    if(questionCount === questions.length) {
+        endOfTheGame();
         console.log('END THE GAME')
     } else {
         $('#question').html(questions[questionCount].question);
+        randomOrderAnswers = shuffleArray(questions[questionCount].answers);
 
-        for (i=0; i<questions[questionCount].answers.length; i++) {
+        for (i=0; i<randomOrderAnswers.length; i++) {
             var answer1 = $('<input class=\'answer\' name=\'answers\' type=\'radio\' value>');
-            answer1.text(questions[questionCount].answers[i]);
-            answer1.attr('value', questions[questionCount].answers[i]);
+            answer1.text(randomOrderAnswers[i]);
+            answer1.attr('value', randomOrderAnswers[i]);
             
-            var answer1P = $('<span>'+ questions[questionCount].answers[i] + '</span>')
+            var answer1P = $('<span>'+ randomOrderAnswers[i] + '</span>')
             $('#answer'+i).append(answer1);
             $('#answer'+i).append(answer1P);
         }
-        questionCount++;
     }
     
 };
@@ -116,8 +123,10 @@ var jumpToNext = function() {
     console.log(selectedAnswer);
     $('#the-answer').text(questions[questionCount].answers[0]);
     if(selectedAnswer === questions[questionCount].answers[0]) {
+        $('#the-answer').append('<p>Your answer was correct. God Job!!')
         console.log('YOUR ANSWER IS CORRECT')
     } else {
+        $('#the-answer').append('<p>Too bad!')
         console.log('YOUR ANSWER IS NOT CORRECT')
     }
 
@@ -127,11 +136,7 @@ $('#submit-button').on('click', function() {
     jumpToNext();
     stop();
 });
-// $('#submit-button').on('click', function() {
-//     $('#board').toggle();
-//     $('#the-answer-wrapper').toggle();
-//     $('#question').text(questions[questionCount].answers[0]);
-// })
+
 
 $('#next-button').on('click', function() {
     $('#board').toggle();
@@ -140,10 +145,23 @@ $('#next-button').on('click', function() {
     cleanQuestions();
     time = 30;
     start();
+    console.log(questionCount)
 })
 
 var cleanQuestions = function() {
     var originalQuestionsTgs = '<p id=\'answer0\'>1.</p><p id=\'answer1\'>2.</p><p id=\'answer2\'>3.</p><p id=\'answer3\'>4.</p>'
-    $('#answers-wrapper').replaceWith(originalQuestionsTgs);
+    $('#answers-wrapper').html(originalQuestionsTgs);
+    questionCount++;
+}
 
+var endOfTheGame = function() {
+    stop();
+    $('.start-button-wrapper').toggle();
+    // $('.start-button-wrapper').empty();
+    $('.hm-body').css('background-image', 'url(assets/images/garden_renge.jpg)');
+    $('#game').toggle();
+    var endGreeting = $('<h1>Thank you for playing!</h1>');
+    $('#title').html(endGreeting)
+    $('#subTitle').empty();
+    
 }
